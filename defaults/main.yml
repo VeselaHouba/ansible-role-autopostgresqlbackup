@@ -1,0 +1,20 @@
+---
+autopgbkp_backup_dir: /backups
+autopgbkp_user: postgres
+# separator = space
+autopgbkp_dbs: all
+autopgbkp_mailaddr: root
+# set to false to leave default "daily"
+autopgbkp_custom_cron: false
+autopgbkp_cron_def:
+  hour: 3
+  minute: 20
+  user: root
+  cron_file: autopostgresqlbackup
+  job: /usr/sbin/autopostgresqlbackup
+use_apt: true
+#
+deb_url: http://deb.debian.org/debian/pool/main/a/autopostgresqlbackup/autopostgresqlbackup_1.1-1_all.deb
+# TODO
+# test passing port with DBHOST="localhost -p 5434"
+# custom deb url

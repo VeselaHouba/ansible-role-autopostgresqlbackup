@@ -1,0 +1,27 @@
+---
+- name: Install autopostgresqlbackup
+  apt:
+    name: autopostgresqlbackup
+
+- name: Crate backup dir "{{ autopgbkp_backup_dir }}"
+  file:
+    path: "{{ autopgbkp_backup_dir }}"
+    state: directory
+    mode: 0700
+    owner: "{{ autopgbkp_user }}"
+
+- name: Install template
+  template:
+    src: autopostgresqlbackup.j2
+    dest: /etc/default/autopostgresqlbackup
+    mode: 0644
+
+- block:
+    - name: Remove default cron
+      file:
+        path: /etc/cron.daily/autopostgresqlbackup
+        state: absent
+
+    - name: Set custom cron
+      cron: "{{ autopgbkp_cron_def }}"
+  when: autopgbkp_custom_cron
