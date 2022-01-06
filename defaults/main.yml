@@ -1,5 +1,6 @@
 ---
 autopgbkp_backup_dir: /backups
+autopgbkp_host: localhost
 autopgbkp_user: postgres
 # separator = space
 autopgbkp_dbs: all

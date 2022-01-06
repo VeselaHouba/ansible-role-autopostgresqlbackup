@@ -26,7 +26,7 @@ USERNAME={{ autopgbkp_user }}
 # the value of USERNAME
 
 # Host name (or IP address) of PostgreSQL server e.g localhost
-DBHOST=localhost
+DBHOST={{ autopgbkp_host }}
 
 # List of DBNAMES for Daily/Weekly Backup e.g. "DB1 DB2 DB3"
 DBNAMES="{{ autopgbkp_dbs }}"
