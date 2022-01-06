@@ -1,0 +1,6 @@
+---
+postgresql_users:
+  - name: postgres
+    password: supersecure
+autopgbkp_pass: supersecure
+autopgbkp_host: 127.0.0.1

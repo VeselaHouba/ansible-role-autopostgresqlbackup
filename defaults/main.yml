@@ -2,6 +2,7 @@
 autopgbkp_backup_dir: /backups
 autopgbkp_host: localhost
 autopgbkp_user: postgres
+autopgbkp_pass: ''
 # separator = space
 autopgbkp_dbs: all
 autopgbkp_mailaddr: root

@@ -13,7 +13,13 @@ def test_nginx_file(host):
 
 def test_pgpass_exists(host):
     f = host.file('/var/lib/postgresql/.pgpass')
-    assert not f.exists
+    assert f.exists
+    assert f.contains('supersecure')
+
+
+def test_values_propagated(host):
+    f = host.file('/etc/default/autopostgresqlbackup')
+    assert f.contains('127.0.0.1')
 
 
 def test_creating_backup(host):

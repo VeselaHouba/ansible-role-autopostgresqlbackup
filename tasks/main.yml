@@ -25,6 +25,22 @@
     mode: 0644
 
 - block:
+    - name: Get user home
+      getent:
+        database: passwd
+        key: "{{ autopgbkp_user }}"
+        split: ":"
+
+    - name: Deploy .pgpass if needed
+      template:
+        src: pgpass.j2
+        dest: "{{ getent_passwd[autopgbkp_user][4] }}/.pgpass"
+        owner: "{{ autopgbkp_user }}"
+        mode: 0600
+  when:
+    - autopgbkp_pass | length > 0
+
+- block:
     - name: Remove default cron
       file:
         path: /etc/cron.daily/autopostgresqlbackup
