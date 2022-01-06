@@ -1,4 +1,12 @@
 ---
+# package is not in bullseye repo (yet)
+- name: Custom deb package on debian11+
+  apt:
+    deb: "{{ deb_url }}"
+  when:
+    - ansible_distribution == 'Debian'
+    - ansible_distribution_version is version('11', '>=')
+
 - name: Install autopostgresqlbackup
   apt:
     name: autopostgresqlbackup

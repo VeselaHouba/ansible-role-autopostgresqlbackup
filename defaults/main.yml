@@ -12,9 +12,4 @@ autopgbkp_cron_def:
   user: root
   cron_file: autopostgresqlbackup
   job: /usr/sbin/autopostgresqlbackup
-use_apt: true
-#
 deb_url: http://deb.debian.org/debian/pool/main/a/autopostgresqlbackup/autopostgresqlbackup_1.1-1_all.deb
-# TODO
-# test passing port with DBHOST="localhost -p 5434"
-# custom deb url
